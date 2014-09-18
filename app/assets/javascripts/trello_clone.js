@@ -4,8 +4,11 @@ window.TrelloClone = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // create collection ivars
-    // instantiate router & pass in DOM el
-    // ?
+    TrelloClone.Collections.boards = new TrelloClone.Collections.Boards;
+    
+    new TrelloClone.Routers.Router({
+      "$rootEl": $('#main')
+    });
+    Backbone.history.start();
   }
 };
