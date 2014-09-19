@@ -1,6 +1,7 @@
 TrelloClone.Routers.Router = Backbone.Router.extend({
   routes: {
-    "": "boardsIndex"
+    "": "boardsIndex",
+    "boards/:id": "boardShow"
   },
   
   initialize: function(options) {
@@ -17,6 +18,15 @@ TrelloClone.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
+  boardShow: function (id) {
+    var board = TrelloClone.Collections.boards.getOrFetch(id);
+    var showView = new TrelloClone.Views.ShowBoard({
+      model: board
+    });
+
+    this._swapView(showView);
+  },
+  
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
