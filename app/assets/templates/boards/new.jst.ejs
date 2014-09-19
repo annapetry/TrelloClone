@@ -1,9 +1,17 @@
-<form id="new-board-form">
-  <label for="board-title">Add New Board</label>
-  <input
-  type="text",
-  name="board[title]"
-  id="board-title">
-  
-  <input type="submit" value="Create Board">
+<form role="form" id="new-board-form" class="form-inline new-board-form">
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      id="new-board-form"
+      name="board[title]"
+      placeholder="Add New Board">
+
+    <button
+      type="submit"
+      class="btn btn-default glyphicon glyphicon-plus">
+    </button>
+  </div>
+
 </form>
+

@@ -20,3 +20,37 @@
 #view {
   margin-top: 60px;
 }
+
+#form-wrapper {
+  width: 100%;
+}
+
+div.form-group {
+  width: 100%;
+}
+
+.new-card-form {
+  margin-bottom: 20px;
+  margin-left: 18%;
+}
+
+.new-board-form {
+  margin-left: 6%;
+  margin-bottom: 20px;
+}
+
+.new-list-form {
+  margin-top: 30px;
+}
+
+.board-row {
+  margin-top: 30px;
+}
+
+#board-title {
+  display: inline-block;
+}
+
+.panel-heading > button {
+  margin-top: -8px;
+}

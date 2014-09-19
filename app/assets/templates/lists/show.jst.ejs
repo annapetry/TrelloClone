@@ -1,2 +1,7 @@
-<%= list.escape('title') %>
-<button id="remove-list" data-list-id="<%= list.id %>">Remove</button>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= list.escape('title') %></h3>
+  </div>
+  <div class="panel-body cards"></div>
+  <div class="new-card"></div>
+</div>
