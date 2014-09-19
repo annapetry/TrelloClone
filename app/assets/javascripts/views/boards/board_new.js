@@ -1,4 +1,4 @@
-TrelloClone.Views.NewBoard = Backbone.View.extend({
+TrelloClone.Views.NewBoard = Backbone.CompositeView.extend({
   template: JST["boards/new"],
   
   events: {

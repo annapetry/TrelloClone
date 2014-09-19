@@ -1,4 +1,4 @@
-TrelloClone.Views.BoardsIndex = Backbone.View.extend({
+TrelloClone.Views.BoardsIndex = Backbone.CompositeView.extend({
   template: JST['boards/index'],
   
   tagName: 'ul',
@@ -12,7 +12,8 @@ TrelloClone.Views.BoardsIndex = Backbone.View.extend({
     this.$el.html(renderedContent);
     
     var formView = new TrelloClone.Views.NewBoard();
-    this.$el.append(formView.render().$el)
+    
+    this.addSubview("#form-wrapper",formView);
     
     return this;
   }

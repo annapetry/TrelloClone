@@ -1,4 +1,4 @@
-TrelloClone.Views.ShowList = Backbone.View.extend({
+TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   template: JST["lists/show"],
   
   event: {
@@ -22,6 +22,7 @@ TrelloClone.Views.ShowList = Backbone.View.extend({
     event.preventDefault();
     
     var listId = $(event.currentTarget).data('list-id');
+    debugger
     
     // need to remove list item from boards.lists
     // remove list from DOM
