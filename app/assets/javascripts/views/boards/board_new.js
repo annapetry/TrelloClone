@@ -17,10 +17,12 @@ TrelloClone.Views.NewBoard = Backbone.CompositeView.extend({
     
     var formData = $(event.currentTarget).serializeJSON();
     var board = new TrelloClone.Models.Board({ title: formData.board.title });
+    var that = this;
     
     board.save({}, {
       success: function () {
         TrelloClone.Collections.boards.add(board);
+        that.render();
       }
     });
   }

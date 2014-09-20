@@ -22,12 +22,14 @@
   width: 100%;
 }
 
-#form-wrapper {
+#form-wrapper > div{
   width: 100%;
+  margin-top: 4px;
 }
 
 div.form-group {
-  width: 100%;
+//  width: 100%;
+  display: inline-block;
 }
 
 .new-list {
@@ -36,7 +38,7 @@ div.form-group {
 
 .new-card-form {
   margin-bottom: 20px;
-  margin-left: 18%;
+  margin-left: 10%;
 }
 
 .new-board-form {
@@ -52,26 +54,30 @@ div.form-group {
   margin-top: 10px;
 }
 
-#board-title,
-#list-title {
+.title {
   display: inline-block;
+}
+
+#board-show-title {
+  margin-right: 30px;
 }
 
 .remove {
   margin-top: -8px;
 }
 
-.board-show-title {
-  display: inline-block;
-}
-
 .remove-board {
   margin-left: 30px;
 }
 
-.list-container {
-  margin-top: 30px;
-  margin-bottom: 20px;
+.list-container,
+.board-row,
+#form-wrapper,
+.new-list-form {
+  margin: 30px 0 20px 20px;
+  display: inline-block;
+  float: left;
+  width: 275px;
 }
 
 .card-panel {
@@ -83,10 +89,6 @@ div.form-group {
   width: 33px;
   padding: 0px;
   margin-top: -1px;
-}
-
-.board-show-title{
-  margin-right: 30px;
 }
 
 

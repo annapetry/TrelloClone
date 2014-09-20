@@ -29,6 +29,7 @@ TrelloClone.Views.NewCard = Backbone.CompositeView.extend({
     card.save({}, {
       success: function () {
         that.collection.add(card);
+        that.render();
       }
     });
   }

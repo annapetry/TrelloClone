@@ -1,16 +1,26 @@
 TrelloClone.Views.BoardsIndex = Backbone.CompositeView.extend({
   template: JST['boards/index'],
   
-  className: 'col-md-3',
+  className: 'boards',
     
   initialize: function () {
     this.listenTo(this.collection, "sync remove", this.render);
     this.listenTo(this.collection, "add", this.addBoard);
     
+    this.createSubviews();
+    this.addFormView();
+  },
+  
+  createSubviews: function () {
     var that = this;
     this.collection.each(function (board) {
       that.addBoard(board);
     });
+  },
+  
+  addFormView: function () {
+    var formView = new TrelloClone.Views.NewBoard();
+    this.addSubview('#form-wrapper', formView);
   },
   
   addBoard: function (board) {
@@ -23,8 +33,6 @@ TrelloClone.Views.BoardsIndex = Backbone.CompositeView.extend({
     var renderedContent = this.template({ boards: this.collection });
     this.$el.html(renderedContent);
     
-    var formView = new TrelloClone.Views.NewBoard();
-    this.$el.append(formView.render().$el);
     this.attachSubviews();
     
     return this;

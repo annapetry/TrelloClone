@@ -29,6 +29,7 @@ TrelloClone.Views.NewList = Backbone.CompositeView.extend({
     list.save({}, {
       success: function () {
         that.collection.add(list);
+        that.render();
       }
     });
   }

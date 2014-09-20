@@ -4,8 +4,7 @@
 
       <a href="#/boards/<%= board.id %>">
         <h3
-          id="board-title"
-          class="panel-title">
+          class="panel-title title">
           <%= board.escape('title') %>
         </h3>
       </a>
@@ -13,7 +12,7 @@
       <button
         id="remove-board"
         data-board-id="<%= board.id %>"
-        class="btn btn-default glyphicon glyphicon-minus pull-right remove">
+        class="btn btn-default glyphicon glyphicon-remove pull-right remove">
       </button>
 
     </div>

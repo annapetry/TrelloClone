@@ -1,9 +1,15 @@
-<h3 class="board-show-title"><%= board.escape('title') %></h3>
+<h3
+  class="title"
+  id="board-show-title">
+    <%= board.escape('title') %>
+</h3>
 <button
   id="remove-board"
-  class="btn btn-default glyphicon glyphicon-minus remove">
+  class="btn btn-default glyphicon glyphicon-remove remove">
 </button>
 
 <div id="lists"></div>
 
-<div class="new-list"></div>
+<div id="list-form"></div>
+
+
