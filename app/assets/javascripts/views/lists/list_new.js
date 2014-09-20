@@ -2,7 +2,7 @@ TrelloClone.Views.NewList = Backbone.CompositeView.extend({
   template: JST["lists/new"],
   
   initialize: function () {
-    this.listenTo(this.model, "add sync", this.render);
+    this.listenTo(this.model, "add remove sync", this.render);
   },
   
   events: {

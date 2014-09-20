@@ -19,6 +19,7 @@
 
 #view {
   margin-top: 60px;
+  width: 100%;
 }
 
 #form-wrapper {
@@ -27,6 +28,10 @@
 
 div.form-group {
   width: 100%;
+}
+
+.new-list {
+  margin-bottom: 30px;
 }
 
 .new-card-form {
@@ -44,13 +49,44 @@ div.form-group {
 }
 
 .board-row {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
-#board-title {
+#board-title,
+#list-title {
   display: inline-block;
 }
 
-.panel-heading > button {
+.remove {
   margin-top: -8px;
 }
+
+.board-show-title {
+  display: inline-block;
+}
+
+.remove-board {
+  margin-left: 30px;
+}
+
+.list-container {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.card-panel {
+  padding: 10px;
+}
+
+#remove-card {
+  height: 30px;
+  width: 33px;
+  padding: 0px;
+  margin-top: -1px;
+}
+
+.board-show-title{
+  margin-right: 30px;
+}
+
+

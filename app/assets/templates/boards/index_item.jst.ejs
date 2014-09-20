@@ -1,0 +1,21 @@
+<div class="row board-row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+
+      <a href="#/boards/<%= board.id %>">
+        <h3
+          id="board-title"
+          class="panel-title">
+          <%= board.escape('title') %>
+        </h3>
+      </a>
+
+      <button
+        id="remove-board"
+        data-board-id="<%= board.id %>"
+        class="btn btn-default glyphicon glyphicon-minus pull-right remove">
+      </button>
+
+    </div>
+  </div>
+</div>

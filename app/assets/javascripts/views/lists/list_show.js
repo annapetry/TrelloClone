@@ -1,15 +1,15 @@
 TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   template: JST["lists/show"],
   
-  event: {
+  events: {
     "click button#remove-list": "removeList"
   },
   
-  className: 'col-md-4',
+  className: 'col-md-3 list-container',
   
   initialize: function () {
     this.listenTo(this.model, "add sync", this.render);
-    this.listenTo(this.model.cards(), "add sync", this.render)
+    this.listenTo(this.model.cards(), "add sync remove", this.render)
   },
   
   render: function () {
@@ -28,18 +28,14 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
     });
 
     this.addSubview('.new-card', formView);
+    
+    $('.cards').sortable();
 
     return this;
   },
   
   removeList: function (event) {
     event.preventDefault();
-    
-    var listId = $(event.currentTarget).data('list-id');
-    debugger
-    
-    // need to remove list item from boards.lists
-    // remove list from DOM
-    // sever listeners
+    this.model.destroy();
   }
 });

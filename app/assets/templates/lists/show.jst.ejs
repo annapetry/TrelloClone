@@ -1,6 +1,14 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= list.escape('title') %></h3>
+    <h3
+      class="panel-title"
+      id="list-title">
+      <%= list.escape('title') %>
+    </h3>
+    <button
+      id="remove-list"
+      class="btn btn-default glyphicon glyphicon-minus pull-right remove">
+    </button>
   </div>
   <div class="panel-body cards"></div>
   <div class="new-card"></div>

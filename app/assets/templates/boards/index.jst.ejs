@@ -1,25 +1,4 @@
-<div class="row board-row">
-  <% boards.each(function (board) { %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <a href="#/boards/<%= board.id %>">
-          <h3
-            id="board-title"
-            class="panel-title">
-            <%= board.escape('title') %>
-          </h3>
-        </a>
-        <button
-          type="submit"
-          id="remove-board"
-          class="btn btn-default glyphicon glyphicon-minus pull-right">
-        </button>
-      </div>
-    </div>
-  <% }) %>
-</div>
-
-
+<div id="board-items"></div>
 
 <div id="form-wrapper"></div>
 
