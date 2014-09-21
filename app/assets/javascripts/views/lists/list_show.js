@@ -2,10 +2,18 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   template: JST["lists/show"],
   
   events: {
-    "click button#remove-list": "removeList"
+    "click button#remove-list": "removeList",
+    "sortstop .cards": "saveCard",
+    "sortreceive .cards": "catchCard"
   },
   
   className: 'list-container',
+  
+  attributes: function() {
+    return {
+      'data-list-id': this.model.id
+    };
+  },
   
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
@@ -59,5 +67,45 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   
   removeCard: function (cardSubView) {
     this.removeSubview('.cards', cardSubView);
+  },
+  
+  catchCard: function (event, ui) {
+    var currentCardId = ui.item.data('card-id');
+    var newOrd = ui.item.index();
+    debugger
+    var cardCopy = new TrelloClone.Models.Card({
+      id: currentCardId,
+      list_id: this.model.id,
+      ord: newOrd
+    });
+    
+    debugger
+    
+    cardCopy.save({}, {
+      success: this.model.cards().add(cardCopy, { silent: true })
+    });
+    
+    this.saveCard(event);
+  },
+
+  saveCard: function (event) {
+    event.stopPropagation();
+    this.saveOrds();
+  },
+  
+  // saveOrds is getting called on an event, but it starts with the first card on the page and errors-out
+  
+  saveOrds: function() {
+    var itemElements = '.single-card';
+    $(itemElements).each(function(index, element) {
+      var collection = this.model.cards();
+      var itemId = $(element).data('card-id');
+      var item = collection.get(itemId);
+      if (item.get('ord') === index) {
+        return;
+      }
+      item.save({ord: index});
+    }.bind(this));
   }
 });
+

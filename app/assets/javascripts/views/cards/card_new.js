@@ -22,9 +22,9 @@ TrelloClone.Views.NewCard = Backbone.CompositeView.extend({
     var formData = $(event.currentTarget).serializeJSON();
     var card = new TrelloClone.Models.Card({ 
       title: formData.card.title,
-      list_id: this.model.id 
+      list_id: this.model.id
     });
-    
+
     var that = this;
     card.save({}, {
       success: function () {

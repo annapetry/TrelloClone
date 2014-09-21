@@ -2,8 +2,11 @@ TrelloClone.Views.ShowBoard = Backbone.CompositeView.extend({
   template: JST["boards/show"],
   
   events: {
-    "click button#remove-board": "removeBoard"
-  },
+    "click button#remove-board": "removeBoard",
+    "sortstop #lists": "saveOrds"
+    },
+  
+  className: 'board-show',
   
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
@@ -36,6 +39,7 @@ TrelloClone.Views.ShowBoard = Backbone.CompositeView.extend({
   },
   
   render: function () {
+    
     var renderedContent = this.template({ board: this.model });
     this.$el.html(renderedContent);
 
@@ -55,5 +59,20 @@ TrelloClone.Views.ShowBoard = Backbone.CompositeView.extend({
   
   removeList: function (listSubView) {
     this.removeSubview('#lists', listSubView);
+  },
+
+  saveOrds: function() {
+    var itemElements = '.list-container';
+    var collection = this.model.lists();
+    $(itemElements).each(function(index, element) {
+      var itemId = $(element).data('list-id');
+      var item = collection.get(itemId);
+      if (item.get('ord') === index) {
+        return;
+      }
+      item.save({ord: index});
+    }.bind(this));
   }
+
 });
+

@@ -58,12 +58,38 @@ div.form-group {
   display: inline-block;
 }
 
-#board-show-title {
-  margin-right: 30px;
+#board-show-title > h3 {
+  margin-right: 20px;
 }
 
-.remove {
+#board-show-title > button {
+  margin-top: -13px;
+}
+
+.remove{
   margin-top: -8px;
+  display: none;
+  height: 25px;
+  width: 30px;
+  padding: 0px;
+  margin-top: -5px;
+}
+
+.add {
+  height: 25px;
+  width: 30px;
+  padding: 0px;
+  margin-top: -3px;
+}
+
+
+.card-panel:hover,
+.list-header:hover,
+#board-show-title:hover,
+.board-title:hover {
+ .remove{
+   display: inline;
+ }
 }
 
 .remove-board {
@@ -80,15 +106,5 @@ div.form-group {
   width: 275px;
 }
 
-.card-panel {
-  padding: 10px;
-}
-
-#remove-card {
-  height: 30px;
-  width: 33px;
-  padding: 0px;
-  margin-top: -1px;
-}
 
 

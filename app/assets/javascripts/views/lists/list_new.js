@@ -22,7 +22,7 @@ TrelloClone.Views.NewList = Backbone.CompositeView.extend({
     var formData = $(event.currentTarget).serializeJSON();
     var list = new TrelloClone.Models.List({ 
       title: formData.list.title, 
-      board_id: this.model.id 
+      board_id: this.model.id
     });
     
     var that = this;

@@ -3,6 +3,7 @@ window.TrelloClone = {
   Collections: {},
   Views: {},
   Routers: {},
+  Utils: {},
   initialize: function() {
     TrelloClone.Collections.boards = new TrelloClone.Collections.Boards;
     
