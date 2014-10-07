@@ -1,0 +1,26 @@
+<div id="sign-up-box">
+  <h1 id="header"><%= header %></h1>
+
+  <form action="<%= action %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input
+      id="usernameField"
+      name="user[email]"
+      type="text"
+      placeholder="  Username">
+    <input
+      id="passwordField"
+      name="user[password]"
+      type="password"
+      placeholder="  Password">
+    <input
+      id="sign-in"
+      type="submit"
+      value="Let's Do it!"
+      class="btn btn-default"><br>
+    <input
+      id="demo"
+      value="Guest User"
+      class="btn btn-default"><br>
+  </form>
+</div>

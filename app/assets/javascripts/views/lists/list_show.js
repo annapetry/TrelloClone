@@ -97,9 +97,11 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   
   saveOrds: function() {
     var itemElements = '.single-card';
+    debugger
     $(itemElements).each(function(index, element) {
       var collection = this.model.cards();
       var itemId = $(element).data('card-id');
+      debugger
       var item = collection.get(itemId);
       if (item.get('ord') === index) {
         return;

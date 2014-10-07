@@ -16,56 +16,68 @@
 @import "bootstrap";
 @import "font-awesome";
 
+#sign-up-box {
+  width: 500px;
+  margin: 50px auto;
+  padding: 40px 40px 70px 40px;
+  background: #e5e5e5;
+  border-radius: 6px;
+  input {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+  }
+  input:focus {
+    outline: none;
+    background: #fff6fe;
+  }
+  form {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+#header {
+  text-align: center;
+}
 
 #view {
   margin-top: 60px;
   width: 100%;
 }
-
 #form-wrapper > div{
   width: 100%;
   margin-top: 4px;
 }
-
 div.form-group {
-//  width: 100%;
   display: inline-block;
 }
-
 .new-list {
   margin-bottom: 30px;
 }
-
 .new-card-form {
   margin-bottom: 20px;
   margin-left: 10%;
 }
-
 .new-board-form {
   margin-left: 6%;
   margin-bottom: 20px;
 }
-
 .new-list-form {
   margin-top: 30px;
 }
-
 .board-row {
   margin-top: 10px;
 }
-
 .title {
   display: inline-block;
 }
-
 #board-show-title > h3 {
   margin-right: 20px;
 }
-
 #board-show-title > button {
   margin-top: -13px;
 }
-
 .remove{
   margin-top: -8px;
   display: none;
@@ -74,15 +86,12 @@ div.form-group {
   padding: 0px;
   margin-top: -5px;
 }
-
 .add {
   height: 25px;
   width: 30px;
   padding: 0px;
   margin-top: -3px;
 }
-
-
 .card-panel:hover,
 .list-header:hover,
 #board-show-title:hover,
@@ -91,11 +100,9 @@ div.form-group {
    display: inline;
  }
 }
-
 .remove-board {
   margin-left: 30px;
 }
-
 .list-container,
 .board-row,
 #form-wrapper,
@@ -104,6 +111,9 @@ div.form-group {
   display: inline-block;
   float: left;
   width: 275px;
+}
+#errors {
+  margin-top: 50px;
 }
 
 
