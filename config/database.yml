@@ -1,16 +1,14 @@
 default: &default
   adapter: postgresql
   host: localhost
-  user: annapetry
+  username: annapetry
   pool: 5
   timeout: 5000
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
 
 development:
   <<: *default
-  database: dangThang_development
+  database: db/dangThang_development
 
 production:
   <<: *default
-  database: dangThang_production
+  database: db/dangThang_production
