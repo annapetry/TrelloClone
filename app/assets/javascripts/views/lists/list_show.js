@@ -2,7 +2,7 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   template: JST["lists/show"],
   
   events: {
-    "click button#remove-list": "removeList",
+    "click button#delete-list": "removeList",
     "sortstop .cards": "saveCard",
     "sortreceive .cards": "catchCard"
   },
@@ -26,6 +26,8 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template({ list: this.model });
     this.$el.html(renderedContent);
+    
+    this.$deleteListModal = this.$('#deleteListModal');
     
     this.attachSubviews();
     return this;
@@ -61,8 +63,13 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   
   removeList: function (event) {
     event.preventDefault();
-    this.model.destroy(); 
-    this.trigger("remove", this);
+    var that = this;
+     
+    this.$deleteListModal.modal('hide');
+    this.$deleteListModal.one('hidden.bs.modal', function (){
+      that.model.destroy();   
+      that.trigger("remove", that);         
+    });
   }, 
   
   removeCard: function (cardSubView) {

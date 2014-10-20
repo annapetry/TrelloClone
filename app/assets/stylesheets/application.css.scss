@@ -20,16 +20,17 @@
   width: 500px;
   margin: 50px auto;
   padding: 40px 40px 70px 40px;
-  background: #e5e5e5;
+  background-image: url(overlay.png), linear-gradient( to bottom right, #0f7988, #c5e2bb);
   border-radius: 6px;
-  input {
+  input,
+  button {
     width: 100%;
     height: 30px;
     margin-top: 10px;
   }
   input:focus {
     outline: none;
-    background: #fff6fe;
+    background: #FFF186;
   }
   form {
     width: 60%;
@@ -39,6 +40,7 @@
 }
 #header {
   text-align: center;
+  color: #fff;
 }
 
 #view {

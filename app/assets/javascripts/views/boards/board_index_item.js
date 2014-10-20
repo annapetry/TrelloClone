@@ -8,13 +8,18 @@ TrelloClone.Views.BoardsIndexItem = Backbone.View.extend({
   render: function(){
     var content = this.template({ board: this.model });
     this.$el.html(content);
+    this.$deleteBoardModal = this.$('#deleteBoardModal');
     return this;
   },
   
   removeBoard: function (event) {
     event.preventDefault();
-    this.model.destroy(); 
+    this.$deleteBoardModal.modal('hide');
     
-    this.trigger("remove", this);
+    var that = this;
+    this.$deleteBoardModal.one('hidden.bs.modal', function (){
+      that.model.destroy();
+      that.trigger("remove", that);
+    });
   },
 });

@@ -42,8 +42,10 @@ TrelloClone.Views.ShowBoard = Backbone.CompositeView.extend({
     
     var renderedContent = this.template({ board: this.model });
     this.$el.html(renderedContent);
-
     this.attachSubviews();
+    
+    this.$deleteBoardModal = this.$('#deleteBoardModal');
+    
     $('#lists').sortable();
     this.onRender();
     
@@ -52,9 +54,13 @@ TrelloClone.Views.ShowBoard = Backbone.CompositeView.extend({
   
   removeBoard: function (event) {
     event.preventDefault();
-    this.model.destroy();
+    this.$deleteBoardModal.modal('hide');
     
-    window.location.hash = '';
+    var that = this;
+    this.$deleteBoardModal.one('hidden.bs.modal', function (){
+      that.model.destroy();
+      window.location.hash = '';
+    });
   },
   
   removeList: function (listSubView) {

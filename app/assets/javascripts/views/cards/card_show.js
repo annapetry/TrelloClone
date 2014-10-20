@@ -20,13 +20,19 @@ TrelloClone.Views.ShowCard = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template({ card: this.model });
     this.$el.html(renderedContent);
+    this.$deleteCardModal = this.$('#deleteCardModal');
     
     return this;
   },
   
   removeCard: function (event) {
     event.preventDefault();
-    this.model.destroy();
-    this.trigger("remove", this);
+    this.$deleteCardModal.modal('hide');
+    
+    var that = this;
+    this.$deleteCardModal.one('hidden.bs.modal', function () {
+      that.model.destroy();
+      that.trigger("remove", that);
+    });
   }
 });
