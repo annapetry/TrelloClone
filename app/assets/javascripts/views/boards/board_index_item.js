@@ -2,6 +2,7 @@ TrelloClone.Views.BoardsIndexItem = Backbone.View.extend({
   template: JST['boards/index_item'],
   
   events: {
+    "click button#board-modal": "showModal",
     "click button#remove-board": "removeBoard"
   },
   
@@ -10,6 +11,10 @@ TrelloClone.Views.BoardsIndexItem = Backbone.View.extend({
     this.$el.html(content);
     this.$deleteBoardModal = this.$('#deleteBoardModal');
     return this;
+  },
+  
+  showModal: function () {
+    this.$deleteBoardModal.modal();
   },
   
   removeBoard: function (event) {

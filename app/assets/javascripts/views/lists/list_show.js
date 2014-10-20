@@ -2,6 +2,7 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   template: JST["lists/show"],
   
   events: {
+    "click button#list-modal": "showModal",
     "click button#delete-list": "removeList",
     "sortstop .cards": "saveCard",
     "sortreceive .cards": "catchCard"
@@ -61,6 +62,10 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
     });
   },
   
+  showModal: function () {
+    this.$deleteListModal.modal();
+  },
+  
   removeList: function (event) {
     event.preventDefault();
     var that = this;
@@ -79,14 +84,11 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   catchCard: function (event, ui) {
     var currentCardId = ui.item.data('card-id');
     var newOrd = ui.item.index();
-    debugger
     var cardCopy = new TrelloClone.Models.Card({
       id: currentCardId,
       list_id: this.model.id,
       ord: newOrd
     });
-    
-    debugger
     
     cardCopy.save({}, {
       success: this.model.cards().add(cardCopy, { silent: true })
@@ -104,7 +106,6 @@ TrelloClone.Views.ShowList = Backbone.CompositeView.extend({
   
   saveOrds: function() {
     var itemElements = '.single-card';
-    debugger
     $(itemElements).each(function(index, element) {
       var collection = this.model.cards();
       var itemId = $(element).data('card-id');

@@ -9,4 +9,4 @@ Ruby on Rails, Backbone.js, Bootstrap, HTML, CSS
 
 ##### Future TODOs:
 - Enable users to edit board titles / list titles / card contents.
-- Add modals / deletion confirmation before deleting a board / list / card
+- Figure out how to use partials in templates

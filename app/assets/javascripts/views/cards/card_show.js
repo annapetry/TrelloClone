@@ -3,6 +3,7 @@ TrelloClone.Views.ShowCard = Backbone.CompositeView.extend({
   
   events: {
     "click button#remove-card": "removeCard",
+    "click button#card-modal": "showModal"
   },
 
   initialize: function () {
@@ -23,6 +24,10 @@ TrelloClone.Views.ShowCard = Backbone.CompositeView.extend({
     this.$deleteCardModal = this.$('#deleteCardModal');
     
     return this;
+  },
+  
+  showModal: function () {
+    this.$deleteCardModal.modal();
   },
   
   removeCard: function (event) {
